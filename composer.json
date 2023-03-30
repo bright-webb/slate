@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "Slate\\Slate\\": "src/"
-        }
+        },
+        "files": [
+            "Helpers/Helpers.php"
+        ]
     },
     "authors": [
         {
