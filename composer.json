@@ -5,7 +5,7 @@
     "license": "MIT License",
     "autoload": {
         "psr-4": {
-            "Slate\\Slate\\": "src/"
+            "Slate\\": "src/"
         },
         "files": [
             "Helpers/Helpers.php"

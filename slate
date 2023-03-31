@@ -1,6 +1,4 @@
 <?php
-    #!/usr/bin/env php
-
     // This is the path to the server.php file
     require __DIR__ . '/server.php';
 
