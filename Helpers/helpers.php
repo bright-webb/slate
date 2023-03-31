@@ -248,3 +248,123 @@ if(!function_exists('static_asset')){
         echo "/www/assets/".$asset;
     }
 }
+
+if(!function_exists('truncate')){
+    function truncate($string, $length = 100, $append = '...'){
+        $string = trim($string);
+        if(strlen($string) > $length){
+            $string = wordwrap($string, $length);
+            $string = explode("\n", $string, 2);
+            $string = $string[0].$append;
+        }
+        return $string;
+    }
+}
+if(!function_exists('is_email')){
+    function is_email($email){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+        return false;
+    }
+}
+
+if(!function_exists('is_url')){
+    function is_url($url){
+        if(filter_var($url, FILTER_VALIDATE_URL)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_ip')){
+    function is_ip($ip){
+        if(filter_var($ip, FILTER_VALIDATE_IP)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_mac')){
+    function is_mac($mac){
+        if(filter_var($mac, FILTER_VALIDATE_MAC)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+
+if(!function_exists('is_int')){
+    function is_int($int){
+        if(filter_var($int, FILTER_VALIDATE_INT)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_float')){
+    function is_float($float){
+        if(filter_var($float, FILTER_VALIDATE_FLOAT)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_alpha')){
+    function is_alpha($alpha){
+        if(filter_var($alpha, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z]+$/")))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_alphanum')){
+    function is_alphanum($alphanum){
+        if(filter_var($alphanum, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z0-9]+$/")))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('is_alphanum_dash')){
+    function is_alphanum_dash($alphanum_dash){
+        if(filter_var($alphanum_dash, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z0-9_-]+$/")))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+if(!function_exists('alphanum_with_space')){
+    function alphanum_with_space($alphanum_with_space){
+        if(filter_var($alphanum_with_space, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z0-9 ]+$/")))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

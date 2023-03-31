@@ -312,5 +312,164 @@
                return 'en';
            }
         }
+
+        public function truncate($string, $length = 100, $append = "&hellip;"){
+            $string = trim($string);
+        
+            if(strlen($string) > $length){
+                $string = wordwrap($string, $length);
+                $string = explode("\n", $string, 2);
+                $string = $string[0] . $append;
+            }
+        
+            return $string;
+        }
+
+        public function isActive($page){
+            $current_page = $this->page();
+            if($current_page == $page){
+                return 'active';
+            }
+            else{
+                return '';
+            }
+        }
+
+        public function isEmail($email){ // checks if email is valid
+            if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isUrl($url){ // checks if url is valid
+            if(filter_var($url, FILTER_VALIDATE_URL)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isIp($ip){ // checks if ip is valid
+            if(filter_var($ip, FILTER_VALIDATE_IP)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isInt($int){ // checks if int is valid
+            if(filter_var($int, FILTER_VALIDATE_INT)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isFloat($float){ // checks if float is valid
+            if(filter_var($float, FILTER_VALIDATE_FLOAT)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isAlpha($string){ // checks if string is alpha
+            if(preg_match('/^[a-zA-Z]+$/', $string)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isAlphanum($string){ // checks if string is alpha numeric
+            if(preg_match('/^[a-zA-Z0-9]+$/', $string)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isAlphanum_space($string){ // checks if string is alpha numeric with spaces
+            if(preg_match('/^[a-zA-Z0-9 ]+$/', $string)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isAlphanum_dash($string){ // checks if string is alpha numeric with dashes
+            if(preg_match('/^[a-zA-Z0-9-]+$/', $string)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isPhone($phone){ // checks if phone number is valid
+            if(preg_match('/^[0-9]{10}+$/', $phone)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isPassword($password){ // checks if password is valid
+            if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isDate($date){ // checks if date is valid
+            if(preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $date)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isTime($time){ // checks if time is valid
+            if(preg_match('/^[0-9]{2}:[0-9]{2}:[0-9]{2}$/', $time)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isDatetime($datetime){ // checks if datetime is valid
+            if(preg_match('/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$/', $datetime)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function isImage($image){ // checks if image is valid
+            $allowed = ['jpg', 'jpeg', 'png', 'gif']; // add more extensions if you want
+            $ext = pathinfo($image, PATHINFO_EXTENSION);
+            if(in_array($ext, $allowed)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>
