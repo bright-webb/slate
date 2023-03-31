@@ -15,11 +15,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
    </style>
 </head>
 <body>
- <div class="container d-none">
-      <div class="row d-flex justify-content-center">
+ <div class="container">
+      <div class="row d-flex justify-content-center align-items-center" style="height: 100vh">
          <div class="col-md-6">
-            <h1>Slate php bootstrap</h1>
-            <p>It works!</p>
+            <div class="text-center">
+               <h1>SLATE PHP BOOTSTRAP 1.0</h1>
+               <p>It works!</p>
+            </div>
          </div>
       </div>
  </div>
